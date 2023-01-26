@@ -12,46 +12,49 @@ import twittIcon from '../assets/twitter-logo.svg.png';
 
 const Navbar = () => {
   return (
-    <div className="Navbar flex w-[30%] flex-col items-start gap-2 border-r-[0.5px] p-4">
-      <div className="w-a ml-[50%] flex gap-4 p-3 text-xl">
-        <img src={twittIcon} className="TwitIcon h-6" alt="" />
+    <div className="Navbar flex w-[21%] flex-col items-end gap-2 border-r-[0.5px] p-4 lg:w-[22%] xl:w-[31%] xl:items-start ">
+      <div className="w-a flex gap-4 p-3 text-xl sm:ml-[50%]">
+        <img src={twittIcon} className="TwitIcon h-7 " alt="" />
       </div>
 
-      <div className="w-a ml-[50%] flex cursor-pointer gap-4 p-3 text-xl font-medium hover:rounded-full hover:bg-slate-500">
-        <HomeIcon className="h-6 text-black" /> <div className="">Home</div>
+      <div className="w-a flex cursor-pointer gap-4 p-3 text-xl font-medium transition-all hover:rounded-full hover:bg-slate-300  xl:ml-[50%]  ">
+        <HomeIcon className="w-7 text-black sm:w-7" />{' '}
+        <div className="hidden xl:block">Home</div>
       </div>
 
-      <div className="w-a ml-[50%] flex cursor-pointer gap-4 p-3 text-xl font-medium hover:rounded-full hover:bg-slate-500">
-        <HashtagIcon className="h-6 text-black" /> Explore
+      <div className="w-a flex cursor-pointer gap-4 p-3 text-xl font-medium transition-all hover:rounded-full hover:bg-slate-300  xl:ml-[50%]  ">
+        <HashtagIcon className="w-7 text-black sm:w-7" />{' '}
+        <div className="hidden xl:block"> Explore</div>
       </div>
-      <div className="w-a ml-[50%] flex cursor-pointer gap-4 p-3 text-xl font-medium hover:rounded-full hover:bg-slate-500">
+      <div className="w-a flex cursor-pointer gap-4 p-3 text-xl font-medium transition-all hover:rounded-full hover:bg-slate-300  xl:ml-[50%]  ">
         {' '}
-        <BellIcon className="h-6 text-black" />
-        Notifications
+        <BellIcon className="w-7 text-black sm:w-7" />{' '}
+        <div className="hidden xl:block">Notifications</div>
       </div>
-      <div className="w-a ml-[50%] flex cursor-pointer gap-4 p-3 text-xl font-medium transition-all hover:rounded-full hover:bg-slate-300">
+      <div className="w-a flex cursor-pointer gap-4 p-3 text-xl font-medium transition-all hover:rounded-full hover:bg-slate-300  xl:ml-[50%]  ">
         {' '}
-        <EnvelopeIcon className="h-6 text-black" />
-        Messages
+        <EnvelopeIcon className="w-7 text-black sm:w-7" />
+        <div className="hidden xl:block">Messages</div>
       </div>
-      <div className="w-a ml-[50%] flex cursor-pointer gap-4 p-3 text-xl font-medium hover:rounded-full hover:bg-slate-500">
-        <BookmarkIcon className="h-6 text-black" />
-        Bookmarks
+      <div className="w-a flex cursor-pointer gap-4 p-3 text-xl font-medium transition-all hover:rounded-full hover:bg-slate-300 xl:ml-[50%]  ">
+        <BookmarkIcon className="w-7 text-black sm:w-7" />{' '}
+        <div className="hidden xl:block">Bookmarks</div>
       </div>
-      <div className="w-a ml-[50%] flex cursor-pointer gap-4 p-3 text-xl font-medium hover:rounded-full hover:bg-slate-500">
-        <ListBulletIcon className="h-6 text-black" />
-        Lists
+      <div className="w-a flex cursor-pointer gap-4 p-3 text-xl font-medium transition-all hover:rounded-full hover:bg-slate-300  xl:ml-[50%]  ">
+        <ListBulletIcon className="w-7 text-black sm:w-7" />{' '}
+        <div className="hidden xl:block">Lists</div>
       </div>
-      <div className="w-a ml-[50%] flex cursor-pointer gap-4 p-3 text-xl font-medium hover:rounded-full hover:bg-slate-500">
-        <UserIcon className="h-6 text-black" />
-        Profile
+      <div className="w-a flex cursor-pointer gap-4 p-3 text-xl font-medium transition-all hover:rounded-full hover:bg-slate-300  xl:ml-[50%]  ">
+        <UserIcon className="w-7 text-black sm:w-7" />{' '}
+        <div className="hidden xl:block">Profile</div>
       </div>
-      <div className="w-a ml-[50%] flex cursor-pointer gap-4 p-3 text-xl font-medium hover:rounded-full hover:bg-slate-500">
-        <EllipsisHorizontalCircleIcon className="h-6 text-black" />
-        More
+      <div className="w-a flex cursor-pointer gap-4 p-3 text-xl font-medium transition-all hover:rounded-full hover:bg-slate-300  xl:ml-[50%]  ">
+        <EllipsisHorizontalCircleIcon className="w-7 text-black sm:w-7" />{' '}
+        <div className="hidden xl:block">More</div>
       </div>
-      <div className="w-a ml-[50%] flex cursor-pointer gap-4 p-3 text-xl font-medium hover:rounded-full hover:bg-slate-500">
-        Tweet
+      <div className="text-l flex h-[52px] w-[52px] cursor-pointer justify-center gap-4 rounded-full bg-[#1D9BF0] p-3 text-xl font-bold text-white transition-all hover:rounded-full hover:bg-blue-400 xl:ml-[50%]  xl:h-[52px] xl:w-[50%] xl:p-3">
+        <div className="hidden xl:block">Tweet</div>{' '}
+        <div className="flex items-center justify-center xl:hidden">+</div>
       </div>
     </div>
   );
