@@ -10,12 +10,25 @@ import {
 } from '@heroicons/react/24/outline';
 import twittIcon from '../assets/twitter-logo.svg.png';
 
-const Navbar = () => {
+const Item = (props) => {
+  if (props.test) {
+    return <div> YES IT WORKS</div>;
+  }
+};
+
+const Navbar = (props) => {
+  const isLoggedin = true;
+
   return (
-    <div className="Navbar flex w-[21%] flex-col items-end gap-2 border-r-[0.5px] p-4 lg:w-[22%] xl:w-[31%] xl:items-start ">
-      <div className="w-a flex gap-4 p-3 text-xl sm:ml-[50%]">
+    <div className="Navbar hidden h-[100vh]  w-[21%] flex-col items-end gap-2 border-r-[0.5px] p-4 sm:flex lg:w-[22%] xl:w-[31%] xl:items-start">
+      <div className="flex gap-4 p-3 text-xl sm:ml-[50%]">
         <img src={twittIcon} className="TwitIcon h-7 " alt="" />
       </div>
+
+      {/* <Item
+        test={true}
+        className="w-a flex cursor-pointer gap-4 p-3 text-xl font-medium transition-all hover:rounded-full hover:bg-slate-300  xl:ml-[50%]  "
+      ></Item> */}
 
       <div className="w-a flex cursor-pointer gap-4 p-3 text-xl font-medium transition-all hover:rounded-full hover:bg-slate-300  xl:ml-[50%]  ">
         <HomeIcon className="w-7 text-black sm:w-7" />{' '}
