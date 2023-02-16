@@ -3,12 +3,12 @@ import { useState } from 'react';
 import SearchBar from './SearchBar';
 import Register from './register';
 
-const Home = () => {
+const Home = (props) => {
   const [input, setInput] = useState('');
 
   return (
     <div className="Home flex">
-      <div className="Home w-[100%] border-r-[0.5px] sm:w-[600px]">
+      <div className="Home w-[100vw] border-r-[0.5px] sm:w-[600px]">
         <SearchBar></SearchBar>
 
         <div className="title ml-5 mt-5 text-2xl font-bold">
@@ -16,7 +16,7 @@ const Home = () => {
           <div className="text-sm">Disabled</div>
         </div>
       </div>
-      <Register className></Register>
+      <Register setLogin={props.setLogin} login={props.login} className></Register>
     </div>
   );
 };
