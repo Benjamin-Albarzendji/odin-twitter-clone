@@ -9,10 +9,11 @@ import {
   EllipsisHorizontalCircleIcon,
 } from '@heroicons/react/24/outline';
 import twittIcon from '../assets/twitter-logo.svg.png';
+import User from './User';
 
 const LoggedIn = (props) => {
   return (
-    <div className="Navbar  hidden h-[100vh]  w-[21%] flex-col items-end gap-2 border-r-[0.5px] p-4 sm:flex lg:w-[22%] xl:w-[31%] xl:items-start">
+    <div className="Navbar relative hidden h-[100vh]  w-[21%] flex-col items-end gap-2 border-r-[0.5px] p-4 sm:flex lg:w-[22%] xl:w-[31%] xl:items-start">
       <div className="flex w-[60px] gap-4 p-3 text-xl sm:ml-[50%]">
         <img src={twittIcon} className="TwitIcon h-7 " alt="" />
       </div>
@@ -56,9 +57,8 @@ const LoggedIn = (props) => {
         <div className="hidden xl:block">Tweet</div>{' '}
         <div className="flex items-center justify-center xl:hidden">+</div>
       </div>
-      <div className="userContainer text-l mt-[65%] flex h-[52px] w-[52px] cursor-pointer justify-center gap-4 rounded-full bg-white p-3 text-xl font-bold text-black transition-all hover:rounded-full hover:bg-gray-100 xl:ml-[50%]  xl:h-[52px] xl:w-[45%] xl:p-3">
-        {props.props.user.uid}
-      </div>
+
+      <User user={props.user}></User>
     </div>
   );
 };
@@ -80,12 +80,10 @@ const NotLoggedIn = () => {
 
 const Navbar = (props) => {
   if (props.login === true) {
-    return <LoggedIn props={props}></LoggedIn>;
+    return <LoggedIn user={props.user}></LoggedIn>;
   } else {
     return <NotLoggedIn></NotLoggedIn>;
   }
-
-  // return (
 };
 
 export default Navbar;
