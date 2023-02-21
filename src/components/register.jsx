@@ -3,9 +3,7 @@ import { anonLogin } from '../utils/loginHandler';
 
 const Register = (props) => {
   const loginHandler = () => {
-    if (anonLogin()) {
-      props.setLogin(true);
-    }
+    anonLogin(props.setLogin, props.setUser);
   };
   if (!props.login) {
     return (

@@ -16,7 +16,12 @@ const Home = (props) => {
           <div className="text-sm">Disabled</div>
         </div>
       </div>
-      <Register setLogin={props.setLogin} login={props.login} className></Register>
+      <Register
+        setLogin={props.setLogin}
+        login={props.login}
+        setUser={props.setUser}
+        className
+      ></Register>
     </div>
   );
 };

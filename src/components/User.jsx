@@ -1,14 +1,23 @@
 import { useState, useEffect } from 'react';
 import { UserCircleIcon } from '@heroicons/react/24/outline';
+import { OuterClick } from 'react-outer-click';
+import { auth } from '../main.jsx';
 
 const UserPopUp = (props) => {
+  const logouter = () => {
+    auth.signOut();
+    props.setLogin(false);
+    props.setUsr(null);
+  };
+
   if (props.show === true) {
     return (
       <div
         onMouseLeave={() => props.setShowPopUp(false)}
-        className="absolute top-[-95%] left-[30%] bg-blue-200 p-3"
+        onMouseDown={logouter}
+        className="absolute left-[-15%] top-[-100%] rounded-lg border-[1px] p-3 text-xs font-normal xl:left-[35%]"
       >
-        Lesss go{' '}
+        Logout{' '}
       </div>
     );
   }
@@ -39,15 +48,30 @@ const User = (props) => {
   }, []);
 
   return (
-    <div
-      onMouseEnter={() => setShowPopUp(true)}
-      onMouseLeave={() => setTimeout(() => setShowPopUp(false), 1000)}
-      className="User absolute bottom-4 flex h-[52px] w-[45px] cursor-pointer  items-center gap-4 rounded-full bg-white p-3 p-2 text-xl font-bold text-black  transition-all hover:rounded-full hover:bg-gray-100 xl:ml-[46%] xl:h-[60px] xl:w-[45%] xl:p-3"
+    // Imported OuterClick from https://www.npmjs.com/package/react-outer-click.
+    // Makes the popup disappear when clicked outside.
+    <OuterClick
+      className="relative ml-[50%] mt-[auto] rounded-full hover:bg-gray-100"
+      onOuterClick={() => {
+        if (showPopUp === true) {
+          setShowPopUp(false);
+        }
+      }}
     >
-      <div className="profilePicture a">{profilePicture}</div>
-      <div className="Username hidden font-medium xl:block">{user}</div>
-      <UserPopUp show={showPopUp} setShowPopUp={setShowPopUp}></UserPopUp>
-    </div>
+      <div
+        onMouseDown={() => setShowPopUp(true)}
+        className="User flex h-[52px] w-[45px] cursor-pointer items-center justify-center gap-4 rounded-full p-2  text-xl font-bold text-black transition-all xl:h-[60px]   xl:w-[45%] xl:justify-start xl:p-3"
+      >
+        <div className="profilePicture a">{profilePicture}</div>
+        <div className="Username hidden font-medium xl:block">{user}</div>
+        <UserPopUp
+          show={showPopUp}
+          setShowPopUp={setShowPopUp}
+          setUser={props.setUser}
+          setLogin={props.setLogin}
+        ></UserPopUp>
+      </div>
+    </OuterClick>
   );
 };
 

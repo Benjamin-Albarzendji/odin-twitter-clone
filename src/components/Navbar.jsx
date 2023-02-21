@@ -58,7 +58,11 @@ const LoggedIn = (props) => {
         <div className="flex items-center justify-center xl:hidden">+</div>
       </div>
 
-      <User user={props.user}></User>
+      <User
+        user={props.user}
+        setUser={props.setUser}
+        setLogin={props.setLogin}
+      ></User>
     </div>
   );
 };
@@ -80,7 +84,13 @@ const NotLoggedIn = () => {
 
 const Navbar = (props) => {
   if (props.login === true) {
-    return <LoggedIn user={props.user}></LoggedIn>;
+    return (
+      <LoggedIn
+        user={props.user}
+        setUser={props.setUser}
+        setLogin={props.setLogin}
+      ></LoggedIn>
+    );
   } else {
     return <NotLoggedIn></NotLoggedIn>;
   }

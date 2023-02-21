@@ -18,7 +18,7 @@ const SearchBar = () => {
           <MagnifyingGlassIcon className="focus- ml-3 h-[20px] w-[20px] text-slate-500 peer-focus:text-sky-500" />
           <XCircleIcon
             onClick={() => setInput('')}
-            className="hidden right-06 absolute w-[20px] cursor-pointer fill-sky-500 text-white hover:fill-sky-600 sm:w-[34px] peer-focus:block"
+            className="right-06 absolute hidden w-[20px] cursor-pointer fill-sky-500 text-white hover:fill-sky-600 peer-focus:block sm:w-[34px]"
           ></XCircleIcon>
         </div>
       </div>
