@@ -19,7 +19,7 @@ const LoggedIn = (props) => {
       </div>
 
       <div className="w-a flex cursor-pointer gap-4 p-3 text-xl font-normal transition-all hover:rounded-full hover:bg-slate-300  xl:ml-[50%]  ">
-        <HomeIcon className="w-7 text-black sm:w-7" />{' '}
+        <HomeIcon className="w-7 text-black sm:w-7 " />{' '}
         <div className="hidden xl:block">Home</div>
       </div>
 
@@ -45,12 +45,12 @@ const LoggedIn = (props) => {
         <ListBulletIcon className="w-7 text-black sm:w-7" />{' '}
         <div className="hidden xl:block">Lists</div>
       </div>
-      <div className="w-a flex cursor-pointer gap-4 p-3 text-xl font-normal transition-all hover:rounded-full hover:bg-slate-300  xl:ml-[50%]  ">
+      <div className="w-a flex cursor-pointer gap-4 p-3 text-xl font-normal transition-all hover:rounded-full hover:bg-slate-300  xl:ml-[50%] ">
         <UserIcon className="w-7 text-black sm:w-7" />{' '}
         <div className="hidden xl:block">Profile</div>
       </div>
       <div className="w-a flex cursor-pointer gap-4 p-3 text-xl font-normal transition-all hover:rounded-full hover:bg-slate-300  xl:ml-[50%]  ">
-        <EllipsisHorizontalCircleIcon className="w-7 text-black sm:w-7" />{' '}
+        <EllipsisHorizontalCircleIcon className="f w-7 text-black sm:w-7" />{' '}
         <div className="hidden xl:block">More</div>
       </div>
       <div className="text-l flex h-[52px] w-[52px] cursor-pointer justify-center gap-4 rounded-full bg-[#1D9BF0] p-3 text-xl font-bold text-white transition-all hover:rounded-full hover:bg-blue-400 xl:ml-[50%]  xl:h-[52px] xl:w-[45%] xl:p-3">

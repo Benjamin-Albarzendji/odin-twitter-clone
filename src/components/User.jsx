@@ -7,7 +7,7 @@ const UserPopUp = (props) => {
   const logouter = () => {
     auth.signOut();
     props.setLogin(false);
-    props.setUsr(null);
+    props.setUser(null);
   };
 
   if (props.show === true) {
@@ -42,7 +42,11 @@ const User = (props) => {
       setProfilePicture(<UserCircleIcon className="h-10 w-10" />);
     } else {
       setProfilePicture(
-        <img src={props.user.photoURL} alt="User Profile Picture" />
+        <img
+          src={props.user.photoURL}
+          className=" rounded-full xl:h-10 xl:w-10"
+          alt="User Profile Picture"
+        />
       );
     }
   }, []);
@@ -60,10 +64,10 @@ const User = (props) => {
     >
       <div
         onMouseDown={() => setShowPopUp(true)}
-        className="User flex h-[52px] w-[45px] cursor-pointer items-center justify-center gap-4 rounded-full p-2  text-xl font-bold text-black transition-all xl:h-[60px]   xl:w-[45%] xl:justify-start xl:p-3"
+        className="User flex w-[45px] shrink cursor-pointer items-center justify-center  gap-4 rounded-full p-2 text-xl  font-bold text-black transition-all xl:flex xl:h-[60px]   xl:w-[100%] xl:justify-start xl:p-3"
       >
-        <div className="profilePicture a">{profilePicture}</div>
-        <div className="Username hidden font-medium xl:block">{user}</div>
+        <div className="profilePicture ">{profilePicture}</div>
+        <div className="Username  hidden font-medium xl:block">{user}</div>
         <UserPopUp
           show={showPopUp}
           setShowPopUp={setShowPopUp}

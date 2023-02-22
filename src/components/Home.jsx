@@ -1,11 +1,10 @@
 import { MagnifyingGlassIcon, XCircleIcon } from '@heroicons/react/24/outline';
 import { useState } from 'react';
 import SearchBar from './SearchBar';
-import Register from './register';
+import Register from './Register';
+import Tweet from './Tweet';
 
 const Home = (props) => {
-  const [input, setInput] = useState('');
-
   return (
     <div className="Home flex">
       <div className="Home w-[100vw] border-r-[0.5px] sm:w-[600px]">
@@ -15,6 +14,8 @@ const Home = (props) => {
           Trends for you
           <div className="text-sm">Disabled</div>
         </div>
+
+        <Tweet user={props.user}></Tweet>
       </div>
       <Register
         setLogin={props.setLogin}

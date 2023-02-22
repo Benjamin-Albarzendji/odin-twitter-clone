@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
+import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
@@ -21,8 +21,9 @@ const firebaseApp = initializeApp(firebaseConfig);
 
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(firebaseApp);
+const provider = new GoogleAuthProvider();
 
-export { auth };
+export { auth, provider };
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

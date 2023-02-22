@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLayoutEffect } from 'react';
 import Navbar from './components/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import { auth } from './main.jsx';
-import { loginChecker } from './utils/loginHandler';
+import { loginChecker } from './utils/Login_Handler';
 
 function App() {
   const [login, setLogin] = useState(false);
@@ -27,7 +27,12 @@ function App() {
           <Route
             path="/"
             element={
-              <Home setLogin={setLogin} setUser={setUser} login={login} />
+              <Home
+                setLogin={setLogin}
+                setUser={setUser}
+                login={login}
+                user={user}
+              />
             }
           />
         </Routes>
