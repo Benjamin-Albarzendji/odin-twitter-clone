@@ -4,6 +4,10 @@ import { useState } from 'react';
 const SearchBar = () => {
   const [input, setInput] = useState('');
 
+  const emptyInput = () => {
+    setInput('');
+  };
+
   return (
     <div className="Tweet  w-[100%] border-r-[0.5px] sm:w-[600px]">
       <div className="searchBar ">
@@ -12,12 +16,12 @@ const SearchBar = () => {
             onInput={(e) => setInput(e.target.value)}
             value={input}
             type="text"
-            className="peer ml-5 w-[97%] border-2 border-none bg-slate-100 placeholder-slate-700 hover:border-none focus:bg-white focus:text-black  focus:outline-none"
+            className="peer ml-4 mr-8 w-[90%] border-2 border-none bg-slate-100 placeholder-slate-700 hover:border-none focus:bg-white focus:text-black  focus:outline-none"
             placeholder="Search Twitter"
           />
           <MagnifyingGlassIcon className="focus- ml-3 h-[20px] w-[20px] text-slate-500 peer-focus:text-sky-500" />
           <XCircleIcon
-            onClick={() => setInput('')}
+            onMouseDown={emptyInput}
             className="right-06 absolute hidden w-[20px] cursor-pointer fill-sky-500 text-white hover:fill-sky-600 peer-focus:block sm:w-[34px]"
           ></XCircleIcon>
         </div>

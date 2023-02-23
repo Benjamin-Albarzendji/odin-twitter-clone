@@ -3,6 +3,7 @@ import { useState } from 'react';
 import SearchBar from './SearchBar';
 import Register from './Register';
 import Tweet from './Tweet';
+import PublishedTweet from './PublishedTweet';
 
 const Home = (props) => {
   return (
@@ -10,12 +11,13 @@ const Home = (props) => {
       <div className="Home w-[100vw] border-r-[0.5px] sm:w-[600px]">
         <SearchBar></SearchBar>
 
-        <div className="title ml-5 mt-5 text-2xl font-bold">
-          Trends for you
-          <div className="text-sm">Disabled</div>
-        </div>
+        <div className="title ml-5 mt-5 mb-2 text-xl font-bold">Home</div>
 
         <Tweet user={props.user}></Tweet>
+        <PublishedTweet></PublishedTweet>
+        
+        
+        
       </div>
       <Register
         setLogin={props.setLogin}
