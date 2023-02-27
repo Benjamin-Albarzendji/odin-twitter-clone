@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
+import { getDatabase, ref, set } from 'firebase/database';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
@@ -14,6 +15,7 @@ const firebaseConfig = {
   storageBucket: 'twitter-clone-69ca8.appspot.com',
   messagingSenderId: '1066993584447',
   appId: '1:1066993584447:web:f2057b8fd1283673b26b8a',
+  databaseURL: 'https://twitter-clone-69ca8-default-rtdb.firebaseio.com/',
 };
 
 // Initialize Firebase
@@ -23,7 +25,17 @@ const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
 const provider = new GoogleAuthProvider();
 
-export { auth, provider };
+// Initialize Realtime Database and get a reference to the service
+const database = getDatabase(firebaseApp);
+
+
+
+
+
+
+
+
+export { auth, provider, database };
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

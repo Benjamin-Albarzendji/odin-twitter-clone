@@ -4,8 +4,11 @@ import {
   XCircleIcon,
 } from '@heroicons/react/24/outline';
 import { useState, useEffect } from 'react';
+import { ref, set } from 'firebase/database';
+import { database, auth } from '../main';
 
 const Tweet = (props) => {
+  const user = auth.currentUser;
   const [input, setInput] = useState('');
   const [profilePicture, setProfilePicture] = useState(null);
   const [characterCount, setCharacterCount] = useState(0);
@@ -26,21 +29,45 @@ const Tweet = (props) => {
 
   //Setting the profile picture
   useEffect(() => {
-    setTimeout(() => {
-      //The profile picture
-      try {
-        setProfilePicture(
-          <img
-            src={props.user.photoURL}
-            className=" rounded-full xl:h-[42px] xl:w-[42px]"
-            alt="User Profile Picture"
-          />
-        );
-      } catch {
-        setProfilePicture(<UserCircleIcon className="h-[42px] w-[42px]" />);
+    
+      setTimeout(() => {
+        //The profile picture
+        try {
+          if (props.user.displayName !== null) {
+          setProfilePicture(
+            <img
+              src={props.user.photoURL}
+              className=" rounded-full xl:h-[42px] xl:w-[42px]"
+              alt="User Profile Picture"
+            />
+          );
+        }} catch {
+          console.log('hmm');
+          setProfilePicture(<UserCircleIcon className="h-[42px] w-[42px]" />);
+        }
+      }, 500);
+    }
+  , [props.user]);
+
+  const tweetSend = (e) => {
+    set(
+      ref(
+        database,
+        `tweets/userID/${auth.currentUser.uid}/tweets/tweet-${Math.floor(
+          Math.random() * 999999999999
+        )}`
+      ),
+      {
+        displayName: user.displayName,
+        username: user.email,
+        userID: user.uid,
+        profilePicture: user.photoURL,
+        timestamp: Date.now(),
+        content: input,
       }
-    }, 500);
-  }, [props.user]);
+    );
+    setInput('');
+  };
 
   return (
     <div className="Tweet relative h-[108px] w-[100%]  border-b-[0.5px] border-t-[0.5px] p-4 sm:w-[600px]">
@@ -71,7 +98,9 @@ const Tweet = (props) => {
           className=" flex  h-[32px] w-[78] cursor-pointer items-center justify-center gap-4 rounded-full bg-[#1D9BF0] p-4 text-sm font-bold text-white transition-all hover:rounded-full  hover:bg-blue-400 
          "
         >
-          <div className=" xl:block">Tweet</div>{' '}
+          <div onClick={tweetSend} className=" xl:block">
+            Tweet
+          </div>{' '}
         </div>
       </div>
 
