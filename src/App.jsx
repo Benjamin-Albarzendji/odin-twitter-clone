@@ -2,18 +2,24 @@ import { useState, useEffect, useLayoutEffect } from 'react';
 import Navbar from './components/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
-import { auth } from './main.jsx';
 import { loginChecker } from './utils/Login_Handler';
+import tweetGetter from './utils/tweetGetter';
 
 function App() {
   const [login, setLogin] = useState(false);
   const [user, setUser] = useState(null);
+  const [tweets, setTweets] = useState(null);
 
   //To check if the user is logged in on load from the firebase auth via the loginChecker
   useEffect(() => {
-    loginChecker(setLogin, setUser);
+    async function fetchData() {
+      await loginChecker(setLogin, setUser);
+      await setTweets(tweetGetter());
+    }
+    fetchData();
   }, []);
   console.log(user);
+
   return (
     <BrowserRouter>
       <div className="App flex">
@@ -32,6 +38,7 @@ function App() {
                 setUser={setUser}
                 login={login}
                 user={user}
+                tweets={tweets}
               />
             }
           />
