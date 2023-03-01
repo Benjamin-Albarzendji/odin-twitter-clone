@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { UserCircleIcon } from '@heroicons/react/24/outline';
 
 const PublishedTweet = (props) => {
+  console.log(props, 'hmm?');
   const [profilePicture, setProfilePicture] = useState(null);
 
   // Setting the profile picture
@@ -26,6 +27,7 @@ const PublishedTweet = (props) => {
       <div className="TweetBody ">
         <div className="profilePictureBody h-[200px] w-[48px]">
           <div>{profilePicture}</div>
+          <div>{props.tweet.content}</div>
         </div>
       </div>
     </div>

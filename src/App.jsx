@@ -5,20 +5,25 @@ import Home from './components/Home';
 import { loginChecker } from './utils/Login_Handler';
 import tweetGetter from './utils/tweetGetter';
 
-function App() {
+ function App() {
   const [login, setLogin] = useState(false);
   const [user, setUser] = useState(null);
   const [tweets, setTweets] = useState(null);
 
-  //To check if the user is logged in on load from the firebase auth via the loginChecker
-  useEffect(() => {
+  //To check if the user is logged in on load from the firebase auth via the loginChecker & tweetGetter functions
+  useLayoutEffect(() => {
     async function fetchData() {
+      // Checks the login state and sets the user variable
       await loginChecker(setLogin, setUser);
-      await setTweets(tweetGetter());
+      // Gets the tweets from the database
+      const getTweets = await tweetGetter();
+      // Sets the tweets variable
+      setTweets(getTweets);
     }
     fetchData();
   }, []);
-  console.log(user);
+
+  console.log(user,);
 
   return (
     <BrowserRouter>
