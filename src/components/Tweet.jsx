@@ -52,6 +52,7 @@ const Tweet = (props) => {
 
   // Tweet send function to backend
   const tweetSend = (e) => {
+    if (input.length === 0) return;
     set(
       ref(
         database,
