@@ -1,11 +1,11 @@
 import { useState, useEffect, useLayoutEffect } from 'react';
-import Navbar from './components/Navbar';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './components/Home';
 import { loginChecker } from './utils/Login_Handler';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
 import tweetGetter from './utils/tweetGetter';
 
- function App() {
+function App() {
   const [login, setLogin] = useState(false);
   const [user, setUser] = useState(null);
   const [tweets, setTweets] = useState(null);
@@ -23,18 +23,21 @@ import tweetGetter from './utils/tweetGetter';
     fetchData();
   }, []);
 
-  console.log(user,);
+  console.log(user);
 
   return (
     <BrowserRouter>
       <div className="App flex">
+        {/* Navbar */}
         <Navbar
           user={user}
           login={login}
           setLogin={setLogin}
           setUser={setUser}
         ></Navbar>
+        {/* Routes */}
         <Routes>
+          {/* Home Route */}
           <Route
             path="/"
             element={

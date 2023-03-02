@@ -3,13 +3,16 @@ import { UserCircleIcon } from '@heroicons/react/24/outline';
 import { OuterClick } from 'react-outer-click';
 import { auth } from '../main.jsx';
 
+// User component popup
 const UserPopUp = (props) => {
+  // Log out function
   const logouter = () => {
     auth.signOut();
     props.setLogin(false);
     props.setUser(null);
   };
 
+  // If the user is logged in and ut is clicked, show the user popup
   if (props.show === true) {
     return (
       <div
@@ -23,6 +26,7 @@ const UserPopUp = (props) => {
   }
 };
 
+// User component
 const User = (props) => {
   const [user, setUser] = useState(null);
   const [profilePicture, setProfilePicture] = useState(null);
@@ -44,7 +48,7 @@ const User = (props) => {
       setProfilePicture(
         <img
           src={props.user.photoURL}
-          className=" rounded-full xl:h-10 xl:w-10"
+          className=" flex-shrink-0 rounded-full xl:h-10 xl:w-10"
           alt="User Profile Picture"
         />
       );

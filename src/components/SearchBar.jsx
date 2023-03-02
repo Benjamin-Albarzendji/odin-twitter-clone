@@ -2,15 +2,19 @@ import { MagnifyingGlassIcon, XCircleIcon } from '@heroicons/react/24/outline';
 import { useState } from 'react';
 
 const SearchBar = () => {
+  // The input
   const [input, setInput] = useState('');
 
+  // Empty the input
   const emptyInput = () => {
     setInput('');
   };
 
   return (
+    // Search Bar cotainer
     <div className="Tweet  w-[100%] border-r-[0.5px] sm:w-[600px]">
       <div className="searchBar ">
+        {/* Search Bar */}
         <div className="group mt-1 ml-5 flex h-[22px] w-[80%] cursor-text flex-row-reverse items-center rounded-full bg-slate-100 p-2 focus-within:border-[1px] focus-within:border-sky-500 focus-within:bg-white focus-within:text-black sm:h-[44px] md:w-[490px]">
           <input
             onInput={(e) => setInput(e.target.value)}

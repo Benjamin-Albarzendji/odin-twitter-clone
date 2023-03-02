@@ -38,7 +38,9 @@ const loginChecker = async (setLogin, setUser) => {
   });
 };
 
+// Google login function
 const loginWithGoogle = (setLogin, setUser) => {
+  // Signs in with Google via Firebase
   signInWithPopup(auth, provider)
     .then((result) => {
       // This gives you a Google Access Token. You can use it to access the Google API.
@@ -58,7 +60,6 @@ const loginWithGoogle = (setLogin, setUser) => {
       const email = error.email;
       // The AuthCredential type that was used.
       const credential = GoogleAuthProvider.credentialFromError(error);
-      // ...
     });
 };
 

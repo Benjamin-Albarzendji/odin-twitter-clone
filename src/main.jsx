@@ -7,7 +7,7 @@ import App from './App';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-// Your web app's Firebase configuration
+// Firebase configuration
 const firebaseConfig = {
   apiKey: 'AIzaSyCqwbczzOmkFf3HGvgrz724tF1w_3HZN-0',
   authDomain: 'twitter-clone-69ca8.firebaseapp.com',
@@ -28,14 +28,10 @@ const provider = new GoogleAuthProvider();
 // Initialize Realtime Database and get a reference to the service
 const database = getDatabase(firebaseApp);
 
-
-
-
-
-
-
-
+// Exporting the firebase services
 export { auth, provider, database };
+
+// React App
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

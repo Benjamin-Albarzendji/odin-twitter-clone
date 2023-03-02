@@ -6,31 +6,47 @@ import Tweet from './Tweet';
 import PublishedTweet from './PublishedTweet';
 
 const Home = (props) => {
+  // Whether to render or not
   const [render, setRender] = useState(false);
+
+  // The published tweets container
   const [publishedTweets, setPublishedTweets] = useState(null);
+
+  // The useeffect to populate the published tweets container
   useEffect(() => {
     if (props.tweets !== null) {
       setRender(true);
-      let test = props.tweets.map((tweet) => (
-        <PublishedTweet tweet={tweet}>{tweet.content}</PublishedTweet>
+      let publishedTweetsArray = props.tweets.map((tweet) => (
+        <PublishedTweet key={tweet.timestamp} tweet={tweet}>
+          {tweet.content}
+        </PublishedTweet>
       ));
-      console.log(test, 'testing');
-      setPublishedTweets(test);
+      setPublishedTweets(publishedTweetsArray);
     }
   }, [props.tweets]);
 
   return (
+    // Home container
     <div className="Home flex h-[100vh] overflow-hidden">
-      <div className="Home w-[100vw] border-r-[0.5px] sm:w-[600px] ">
+      <div className="Home w-[100vw] border-r-[0.5px] md:w-[600px] ">
+        {/* Search Bar */}
         <SearchBar></SearchBar>
 
+        {/* Home Title */}
         <div className="title ml-5 mt-5 mb-2 overflow-hidden text-xl font-bold">
           Home
         </div>
-        <Tweet user={props.user}></Tweet>
+
+        {/* Decides whether to render the tweet box depending on login status */}
+        {props.login ? <Tweet user={props.user}></Tweet> : null}
+
+        {/* The published tweets container */}
         <div className="publishedTweets container h-[100vh] overflow-auto">
+          {/* Decides wehther to render published tweets  */}
           {render ? publishedTweets : null}
         </div>
+
+        {/* The register side bar if not logged in. */}
       </div>
       <Register
         setLogin={props.setLogin}
