@@ -41,7 +41,7 @@ const Home = (props) => {
         {props.login ? <Tweet user={props.user}></Tweet> : null}
 
         {/* The published tweets container */}
-        <div className="publishedTweets container h-[100vh] overflow-auto">
+        <div className="publishedTweets container h-[100vh] overflow-auto pb-[250px]">
           {/* Decides wehther to render published tweets  */}
           {render ? publishedTweets : null}
         </div>

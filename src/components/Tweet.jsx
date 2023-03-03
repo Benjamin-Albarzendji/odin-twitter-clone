@@ -73,12 +73,21 @@ const Tweet = (props) => {
     setInput('');
   };
 
+  // Focuses the input field
+  const inputFocuser = () => {
+    const inputField = document.querySelector('.inputField');
+    inputField.focus();
+  };
+
   return (
     // Tweet container
-    <div className="Tweet relative h-[108px] w-[100%]  border-b-[0.5px] border-t-[0.5px] p-4 sm:w-[600px]">
+    <div
+      onClick={inputFocuser}
+      className="Tweet relative h-[108px] w-[100%]  cursor-text border-b-[0.5px] border-t-[0.5px] p-4 sm:w-[600px]"
+    >
       <div className="Tweet flex">
         {/* Profile picture */}
-        <div className="profile h-[181px] w-[48px]">
+        <div className="profile h-[108px] w-[48px]">
           <div>{profilePicture}</div>
         </div>
 
@@ -88,7 +97,7 @@ const Tweet = (props) => {
             onInput={(e) => inputChecker(e)}
             value={input}
             type="text"
-            className="bg-back peer mr-10 flex w-[90%] flex-wrap border-2 border-none placeholder-slate-700 hover:border-none focus:text-black  focus:outline-none"
+            className="inputField peer mr-10 flex w-[90%] flex-wrap border-2 border-none placeholder-slate-700 hover:border-none focus:text-black focus:outline-none"
             placeholder="What's Happening?"
           />
 
