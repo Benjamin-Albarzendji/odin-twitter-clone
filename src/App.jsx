@@ -3,6 +3,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { loginChecker } from './utils/Login_Handler';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
+import Explore from './components/Explore';
+import Notifications from './components/Notifications';
+import Messages from './components/Messages';
+import Bookmarks from './components/Bookmarks';
+import Lists from './components/Lists';
+import More from './components/More';
 import tweetGetter from './utils/tweetGetter';
 
 function App() {
@@ -50,6 +56,12 @@ function App() {
               />
             }
           />
+          <Route path="/explore" element={<Explore />} />
+          <Route path="/notifications" element={<Notifications />} />
+          <Route path="/messages" element={<Messages />} />
+          <Route path="/bookmarks" element={<Bookmarks />} />
+          <Route path="/lists" element={<Lists />} />
+          <Route path="/more" element={<More />} />
         </Routes>
       </div>
     </BrowserRouter>

@@ -13,17 +13,15 @@ import User from './User';
 import { NavLink } from 'react-router-dom';
 
 const LoggedIn = (props) => {
-  let activeStyle = { fontWeight: 'bold' };
+  const activeStyle = { fontWeight: 'bolder' };
+  const notActiveStyle = { fontWeight: 'normal' };
+
   return (
     // Navbar Container
     <div className="Navbar relative hidden h-[100vh]  w-[21%] flex-col items-end gap-2 border-r-[0.5px] p-4 md:flex lg:w-[22%] xl:w-[31%] xl:items-start">
       {/* // Twitter Icon */}
-      <NavLink
-        className="sm: ml-[50%]"
-        to="/"
-        style={({ isActive }) => (isActive ? activeStyle : undefined)}
-      >
-        <div className="flex w-[60px] gap-4 p-3 text-xl  ">
+      <NavLink className="sm: ml-[50%]" to="/">
+        <div className="flex w-[60px] gap-4 p-3 text-xl">
           <img src={twittIcon} className="TwitIcon h-7 cursor-pointer" alt="" />
         </div>
       </NavLink>
@@ -32,9 +30,9 @@ const LoggedIn = (props) => {
       <NavLink
         className="flex gap-4 xl:ml-[50%]"
         to="/"
-        style={({ isActive }) => (isActive ? activeStyle : undefined)}
+        style={({ isActive }) => (isActive ? activeStyle : notActiveStyle)}
       >
-        <div className="w-a flex cursor-pointer gap-4 p-3 text-xl font-normal transition-all hover:rounded-full hover:bg-slate-300 ">
+        <div className="w-a flex cursor-pointer gap-4 p-3 text-xl transition-all hover:rounded-full hover:bg-slate-300">
           <HomeIcon className="w-7 text-black sm:w-7 " />{' '}
           <div className="hidden xl:block">Home</div>
         </div>
@@ -44,9 +42,9 @@ const LoggedIn = (props) => {
       <NavLink
         className="flex gap-4 xl:ml-[50%]"
         to="/explore"
-        style={({ isActive }) => (isActive ? activeStyle : undefined)}
+        style={({ isActive }) => (isActive ? activeStyle : notActiveStyle)}
       >
-        <div className="w-a flex cursor-pointer gap-4 p-3 text-xl font-normal transition-all hover:rounded-full hover:bg-slate-300    ">
+        <div className="w-a flex cursor-pointer gap-4 p-3 text-xl transition-all hover:rounded-full hover:bg-slate-300    ">
           <HashtagIcon className="w-7 text-black sm:w-7" />{' '}
           <div className="hidden xl:block"> Explore</div>
         </div>
@@ -56,9 +54,9 @@ const LoggedIn = (props) => {
       <NavLink
         className="flex gap-4 xl:ml-[50%]"
         to="/notifications"
-        style={({ isActive }) => (isActive ? activeStyle : undefined)}
+        style={({ isActive }) => (isActive ? activeStyle : notActiveStyle)}
       >
-        <div className="w-a flex cursor-pointer gap-4 p-3 text-xl font-normal transition-all hover:rounded-full hover:bg-slate-300   ">
+        <div className="w-a flex cursor-pointer gap-4 p-3 text-xl transition-all hover:rounded-full hover:bg-slate-300   ">
           {' '}
           <BellIcon className="w-7 text-black sm:w-7" />{' '}
           <div className="hidden xl:block">Notifications</div>
@@ -69,9 +67,9 @@ const LoggedIn = (props) => {
       <NavLink
         className="flex gap-4 xl:ml-[50%]"
         to="/messages"
-        style={({ isActive }) => (isActive ? activeStyle : undefined)}
+        style={({ isActive }) => (isActive ? activeStyle : notActiveStyle)}
       >
-        <div className="w-a flex cursor-pointer gap-4 p-3 text-xl font-normal transition-all hover:rounded-full hover:bg-slate-300   ">
+        <div className="w-a flex cursor-pointer gap-4 p-3 text-xl transition-all hover:rounded-full hover:bg-slate-300   ">
           {' '}
           <EnvelopeIcon className="w-7 text-black sm:w-7" />
           <div className="hidden xl:block">Messages</div>
@@ -82,9 +80,9 @@ const LoggedIn = (props) => {
       <NavLink
         className="flex gap-4 xl:ml-[50%]"
         to="/bookmarks"
-        style={({ isActive }) => (isActive ? activeStyle : undefined)}
+        style={({ isActive }) => (isActive ? activeStyle : notActiveStyle)}
       >
-        <div className="w-a flex cursor-pointer gap-4 p-3 text-xl font-normal transition-all hover:rounded-full hover:bg-slate-300  ">
+        <div className="w-a flex cursor-pointer gap-4 p-3 text-xl transition-all hover:rounded-full hover:bg-slate-300  ">
           <BookmarkIcon className="w-7 text-black sm:w-7" />{' '}
           <div className="hidden xl:block">Bookmarks</div>
         </div>
@@ -94,9 +92,9 @@ const LoggedIn = (props) => {
       <NavLink
         className="flex gap-4 xl:ml-[50%]"
         to="/lists"
-        style={({ isActive }) => (isActive ? activeStyle : undefined)}
+        style={({ isActive }) => (isActive ? activeStyle : notActiveStyle)}
       >
-        <div className="w-a flex cursor-pointer gap-4 p-3 text-xl font-normal transition-all hover:rounded-full hover:bg-slate-300   ">
+        <div className="w-a flex cursor-pointer gap-4 p-3 text-xl transition-all hover:rounded-full hover:bg-slate-300   ">
           <ListBulletIcon className="w-7 text-black sm:w-7" />{' '}
           <div className="hidden xl:block">Lists</div>
         </div>
@@ -106,9 +104,9 @@ const LoggedIn = (props) => {
       <NavLink
         className="flex gap-4 xl:ml-[50%]"
         to={'/' + props.user.uid}
-        style={({ isActive }) => (isActive ? activeStyle : undefined)}
+        style={({ isActive }) => (isActive ? activeStyle : notActiveStyle)}
       >
-        <div className="w-a flex cursor-pointer gap-4 p-3 text-xl font-normal transition-all hover:rounded-full hover:bg-slate-300  ">
+        <div className="w-a flex cursor-pointer gap-4 p-3 text-xl transition-all hover:rounded-full hover:bg-slate-300  ">
           <UserIcon className="w-7 text-black sm:w-7" />{' '}
           <div className="hidden xl:block">Profile</div>
         </div>
@@ -118,9 +116,9 @@ const LoggedIn = (props) => {
       <NavLink
         className="flex gap-4 xl:ml-[50%]"
         to="/more"
-        style={({ isActive }) => (isActive ? activeStyle : undefined)}
+        style={({ isActive }) => (isActive ? activeStyle : notActiveStyle)}
       >
-        <div className="w-a flex cursor-pointer gap-4 p-3 text-xl font-normal transition-all hover:rounded-full hover:bg-slate-300   ">
+        <div className="w-a flex cursor-pointer gap-4 p-3 text-xl transition-all hover:rounded-full hover:bg-slate-300   ">
           <EllipsisHorizontalCircleIcon className="f w-7 text-black sm:w-7" />{' '}
           <div className="hidden xl:block">More</div>
         </div>
@@ -152,7 +150,7 @@ const NotLoggedIn = () => {
       </div>
 
       {/* Explore Icon */}
-      <div className="w-a flex cursor-pointer gap-4 p-3 text-xl font-bold transition-all hover:rounded-full hover:bg-slate-300   ">
+      <div className="sm: w-a ml-[50%] flex cursor-pointer gap-4 p-3 text-xl font-bold transition-all hover:rounded-full hover:bg-slate-300   ">
         <HashtagIcon className="w-7 text-black sm:w-7" />{' '}
         <div className="hidden xl:block"> Explore</div>
       </div>
