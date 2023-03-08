@@ -15,7 +15,6 @@ const ProfileContainer = (props) => {
     // ProfileContainer container
     <div className="ProfileContainer flex h-[300px] border-b-[0.5px]">
       <div className="ProfileContainer w-[100vw] border-r-[0.5px] bg-blue-100 p-5 md:w-[600px]">
-        
         {render ? (
           <img
             className="mt-[%] w-[140px] rounded-full"

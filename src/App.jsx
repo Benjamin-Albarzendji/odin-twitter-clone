@@ -10,7 +10,7 @@ import Bookmarks from './components/Bookmarks';
 import Lists from './components/Lists';
 import More from './components/More';
 import Profile from './components/Profile';
-import tweetGetter from './utils/tweetGetter';
+import tweetGetter from './utils/TweetGetter';
 
 function App() {
   const [login, setLogin] = useState(false);
