@@ -103,7 +103,7 @@ const LoggedIn = (props) => {
       {/* Profile Icon */}
       <NavLink
         className="flex gap-4 xl:ml-[50%]"
-        to={'/' + props.user.uid}
+        to={'/profile/' + props.user.uid}
         style={({ isActive }) => (isActive ? activeStyle : notActiveStyle)}
       >
         <div className="w-a flex cursor-pointer gap-4 p-3 text-xl transition-all hover:rounded-full hover:bg-slate-300  ">

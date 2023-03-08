@@ -9,6 +9,7 @@ import Messages from './components/Messages';
 import Bookmarks from './components/Bookmarks';
 import Lists from './components/Lists';
 import More from './components/More';
+import Profile from './components/Profile';
 import tweetGetter from './utils/tweetGetter';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
   }, []);
 
   console.log(user);
+  console.log(tweets);
 
   return (
     <BrowserRouter>
@@ -62,6 +64,10 @@ function App() {
           <Route path="/bookmarks" element={<Bookmarks />} />
           <Route path="/lists" element={<Lists />} />
           <Route path="/more" element={<More />} />
+          <Route
+            path="/profile/:id"
+            element={<Profile user={user} tweets={tweets} />}
+          />
         </Routes>
       </div>
     </BrowserRouter>

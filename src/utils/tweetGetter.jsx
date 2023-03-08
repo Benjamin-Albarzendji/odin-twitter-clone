@@ -27,6 +27,10 @@ const tweetGetter = async () => {
     .catch((error) => {
       console.error(error);
     });
+
+  // Sorts the Tweets by timestamp in descending order
+  tweets.sort((a, b) => b.timestamp - a.timestamp);
+
   // Returns the Tweets
   return tweets;
 };
