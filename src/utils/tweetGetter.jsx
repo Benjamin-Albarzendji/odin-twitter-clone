@@ -36,4 +36,3 @@ const tweetGetter = async () => {
 };
 
 export default tweetGetter;
-git status

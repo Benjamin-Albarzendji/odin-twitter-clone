@@ -14,13 +14,18 @@ const ProfileContainer = (props) => {
   return (
     // ProfileContainer container
     <div className="ProfileContainer flex h-[300px] border-b-[0.5px]">
-      <div className="ProfileContainer w-[100vw] border-r-[0.5px] bg-blue-100 p-5 md:w-[600px]">
+      <div className="ProfileContainer w-[100vw] border-r-[0.5px] p-5 md:w-[600px]">
         {render ? (
-          <img
-            className="mt-[%] w-[140px] rounded-full"
-            src={user.photoURL}
-            alt=""
-          />
+          <div className="userInformation ">
+            <img
+              className="mt-[5%] w-[140px] rounded-full bg-white p-1"
+              src={user.photoURL}
+              alt=""
+            />
+            <div className="userDisplayName mt-5 text-xl font-bold">
+              {user.displayName}
+            </div>
+          </div>
         ) : null}
       </div>
     </div>
