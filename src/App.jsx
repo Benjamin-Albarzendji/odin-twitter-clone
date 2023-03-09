@@ -34,7 +34,7 @@ function App() {
   console.log(tweets);
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/odin-twitter-clone/">
       <div className="App flex">
         {/* Navbar */}
         <Navbar
