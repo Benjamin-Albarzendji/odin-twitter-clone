@@ -50,7 +50,7 @@ const Profile = (props) => {
         <ProfileContainer user={props.user} />
         {/* The published tweets container */}
         <div className="publishedTweets container h-[100vh] overflow-auto pb-[250px]">
-          {/* Decides wehther to render published tweets  */}
+          {/* Decides whether to render published tweets  */}
           {render ? publishedTweets : null}
         </div>
       </div>

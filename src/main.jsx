@@ -32,7 +32,6 @@ const database = getDatabase(firebaseApp);
 export { auth, provider, database };
 
 // React App
-
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />

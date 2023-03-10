@@ -17,11 +17,13 @@ const ProfileContainer = (props) => {
       <div className="ProfileContainer w-[100vw] border-r-[0.5px] p-5 md:w-[600px]">
         {render ? (
           <div className="userInformation ">
+            {/* User Profile Picture */}
             <img
               className="mt-[5%] w-[140px] rounded-full bg-white p-1"
               src={user.photoURL}
               alt=""
             />
+            {/* User Display Name */}
             <div className="userDisplayName mt-5 text-xl font-bold">
               {user.displayName}
             </div>
